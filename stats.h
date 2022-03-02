@@ -11,7 +11,7 @@ namespace Statistics
 
        //constructor
        Stats(const std::vector<double>& inputdata);
-    }
+    };
 
     //Stats ComputeStatistics(const std::vector<double>& inputData);
 
