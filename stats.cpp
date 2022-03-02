@@ -1,8 +1,9 @@
 #include "stats.h"
 using namespace Statistics;
 
-Stats ComputeStatistics(const std::vector<double>& InputData) 
+Stats Stats::ComputeStatistics(const std::vector<double>& InputData) 
 {
+    Stats ComputeStatIstics_Temp;
     double sum = 0,average,max=0,min=0;
     for (int i=0; i<sizeof(InputData); i++)
     {
@@ -22,7 +23,9 @@ Stats ComputeStatistics(const std::vector<double>& InputData)
             min = InputData[i]; 
         }
     }  
-    ComputeStatistics.average = average;
-    ComputeStatistics.max = max;
-    ComputeStatistics.min = min;
+    ComputeStatIstics_Temp.average = average;
+    ComputeStatIstics_Temp.max = max;
+    ComputeStatIstics_Temp.min = min;
+
+    return ComputeStatIstics_Temp;
 }
