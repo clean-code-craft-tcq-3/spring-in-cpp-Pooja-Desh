@@ -5,7 +5,7 @@ Stats Stats::ComputeStatistics(const std::vector<double>& InputData)
 {
     Stats ComputeStatIstics_Temp;
     double sum = 0,average,max=0,min=0;
-    for (int i=0; i<sizeof(InputData); i++)
+    for (int i=0; i<InputData.size(); i++)
     {
         sum += InputData[i];
     }
