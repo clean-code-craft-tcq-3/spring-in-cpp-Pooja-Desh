@@ -23,7 +23,7 @@ class IAlerter
     {
         //alert_flag = 0;
     }
-}
+};
 
 class EmailAlert::public IAlerter
 {
@@ -32,7 +32,7 @@ class EmailAlert::public IAlerter
     {
         emailSent = true;
     }
-}
+};
 
 class LEDAlert::public IAlerter
 {
@@ -41,7 +41,7 @@ class LEDAlert::public IAlerter
     {
         ledGlows = true;
     }
-}
+};
 
 class StatsAlerter::public IAlerter
 {
@@ -60,7 +60,7 @@ class StatsAlerter::public IAlerter
         alerters_input = alerters;
     }
 
-}
+};
 
 
 
