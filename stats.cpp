@@ -10,7 +10,11 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
         sum += InputData[i];
     }
     average = sum/sizeof(InputData);
+    std::cout<<average;
 
+    average = (accumulate(InputData.begin(),InputData.end(),0))/int(sizeof(InputData));
+    std::cout<<average;
+    
     for (int i=0; i<int(InputData.size()); i++)
     {
         if(max < InputData[i])
