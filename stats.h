@@ -18,7 +18,7 @@ namespace Statistics
 
 class IAlerter
 {
-    int alert_flag;
+    //int alert_flag;
     virtual void set_alert()
     {
         //alert_flag = 0;
