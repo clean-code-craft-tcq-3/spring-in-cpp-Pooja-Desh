@@ -43,3 +43,24 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
 
     return ComputeStatIstics_Temp;
 }
+
+StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
+{
+    //EmailAlert emailAlert;
+    //LEDAlert ledAlert;
+    alert_flag = 0;
+    for (int i = 0; i < int(float(InputData.size)); i++)
+    {
+        if (InputData[i] > maxThreshold)
+        {
+            alert_flag = 1;
+            break;
+        }
+    }
+
+    if(alert_flag == 1)
+    {
+       void alert_email();
+       void alert_LED();
+    }
+}
