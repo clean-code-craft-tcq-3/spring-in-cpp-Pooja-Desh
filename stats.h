@@ -10,7 +10,8 @@ class Stats
        //Stats(const std::vector<double>& inputdata);
     //};
 
-    }ComputeStatIstics_Temp;
+    //}ComputeStatIstics_Temp;
+    };
     
 namespace Statistics 
 {
