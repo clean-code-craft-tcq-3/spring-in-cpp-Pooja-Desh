@@ -18,17 +18,17 @@ namespace Statistics
 
 class IAlerter
 {
-    /*int alert_flag;
+    int alert_flag;
     virtual void set_alert()
     {
-        alert_flag = 0;
-    }*/
+        //alert_flag = 0;
+    }
 }
 
 class EmailAlert::public IAlerter
 {
     bool emailSent;
-    void alert_email()
+    void set_alert()
     {
         emailSent = true;
     }
@@ -37,7 +37,7 @@ class EmailAlert::public IAlerter
 class LEDAlert::public IAlerter
 {
     bool ledGlows;
-    void alert_LED()
+    void set_alert()
     {
         ledGlows = true;
     }
@@ -65,4 +65,3 @@ class StatsAlerter::public IAlerter
 
 
 //alerters is vector of struct
-
