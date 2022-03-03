@@ -3,9 +3,9 @@
 
 Stats Statistics::ComputeStatistics(const std::vector<float>& InputData) 
 {
+    float i, sum = 0, average,min,max;
     if(InputData.size())
     {
-        float i, sum = 0, average;
         for (i = 0; i < float(InputData.size()); i++)
         {
             sum += InputData[i];
@@ -16,7 +16,8 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
         //average = (std::accumulate(InputData.begin(),InputData.end(),0))/int(sizeof(InputData));
         //std::cout<<average;
 
-        float max = InputData[0], min = InputData[0];
+        max = InputData[0];
+        min = InputData[0];
         for (int i = 0; i < int(InputData.size()); i++)
         {
             if (max < InputData[i])
