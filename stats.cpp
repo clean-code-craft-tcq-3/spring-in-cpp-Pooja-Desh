@@ -48,19 +48,21 @@ void StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
 {
     //EmailAlert emailAlert;
     //LEDAlert ledAlert;
-    alert_flag = 0;
+    //alert_flag = 0;
     for (int i = 0; i < int(float(InputData.size)); i++)
     {
         if (InputData[i] > maxThreshold)
         {
-            alert_flag = 1;
+            //alert_flag = 1;
+            alerters_input[0]->set_alert();
+            alerters_input[1]->set_alert();
             break;
         }
     }
 
-    if(alert_flag == 1)
+    /*if(alert_flag == 1)
     {
        alerters_input[0]->set_alert();
        alerters_input[1]->set_alert();
-    }
+    }*/
 }
