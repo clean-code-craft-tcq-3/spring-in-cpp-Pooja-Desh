@@ -15,5 +15,5 @@ class Stats
     
 namespace Statistics 
 {
-    Stats ComputeStatistics(const std::vector<double>& inputData);
+    Stats ComputeStatistics(const std::vector<float>& inputData);
 }
