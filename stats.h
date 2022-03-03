@@ -4,7 +4,7 @@
 class Stats
     {
        public:
-       double average, max, min; 
+       float average, max, min; 
 
        //constructor
        //Stats(const std::vector<double>& inputdata);
