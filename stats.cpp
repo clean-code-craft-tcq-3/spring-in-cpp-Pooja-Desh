@@ -21,12 +21,15 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
         {
             max = InputData[i]; 
         }
-
+    }  
+    
+    for (int i=0; i<int(InputData.size()); i++)
+    {
         if(min > InputData[i])
         {
             min = InputData[i]; 
         }
-    }  
+    }
     ComputeStatIstics_Temp.average = average;
     ComputeStatIstics_Temp.max = max;
     ComputeStatIstics_Temp.min = min;
