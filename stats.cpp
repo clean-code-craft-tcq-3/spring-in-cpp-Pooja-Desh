@@ -44,7 +44,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
     return ComputeStatIstics_Temp;
 }
 
-StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
+void StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
 {
     //EmailAlert emailAlert;
     //LEDAlert ledAlert;
