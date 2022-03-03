@@ -4,16 +4,16 @@
 Stats Statistics::ComputeStatistics(const std::vector<float>& InputData) 
 {
     Stats ComputeStatIstics_Temp;
-    float sum = 0,average,max=0,min=0;
-    for (int i=0; i<int(InputData.size()); i++)
+    float i, sum = 0,average,max=0,min=0;
+    for (i=0; i<float(InputData.size()); i++)
     {
         sum += InputData[i];
     }
-    average = sum/sizeof(InputData);
-    std::cout<<average;
+    average = sum/float(InputData.size());
+    //std::cout<<average;
 
-    average = (std::accumulate(InputData.begin(),InputData.end(),0))/int(sizeof(InputData));
-    std::cout<<average;
+    //average = (std::accumulate(InputData.begin(),InputData.end(),0))/int(sizeof(InputData));
+    //std::cout<<average;
     
     for (int i=0; i<int(InputData.size()); i++)
     {
