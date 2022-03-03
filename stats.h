@@ -1,67 +1,66 @@
-#include <vector>
+#include "stats.h"
+//using namespace Statistics;
 
-class Stats
+Stats Statistics::ComputeStatistics(const std::vector<float>& InputData) 
 {
-public:
-    float average, max, min;
-
-    //constructor
-    //Stats(const std::vector<double>& inputdata);
-};
-
-    //}ComputeStatIstics_Temp;
-    
-namespace Statistics 
-{
-    Stats ComputeStatistics(const std::vector<float>& inputData);
-}
-
-class IAlerter
-{
-    int alert_flag;
-    virtual void set_alert()
+    float i, sum = 0, average,min,max;
+    if(InputData.size())
     {
-        //alert_flag = 0;
+        for (i = 0; i < float(InputData.size()); i++)
+        {
+            sum += InputData[i];
+        }
+        average = sum / float(InputData.size());
+        //std::cout<<average;
+
+        //average = (std::accumulate(InputData.begin(),InputData.end(),0))/int(sizeof(InputData));
+        //std::cout<<average;
+
+        max = InputData[0];
+        min = InputData[0];
+        for (int i = 0; i < int(InputData.size()); i++)
+        {
+            if (max < InputData[i])
+            {
+                max = InputData[i];
+            }
+            if (min > InputData[i])
+            {
+                min = InputData[i];
+            }
+        }
     }
-}
-
-class EmailAlert::public IAlerter
-{
-    bool emailSent;
-    void set_alert()
+    else
     {
-        emailSent = true;
+        average = 0.0/0.0;
+        max = 0.0/0.0;
+        min = 0.0/0.0;
     }
+    Stats ComputeStatIstics_Temp; 
+    ComputeStatIstics_Temp.average = average;
+    ComputeStatIstics_Temp.max = max;
+    ComputeStatIstics_Temp.min = min;
+
+    return ComputeStatIstics_Temp;
 }
 
-class LEDAlert::public IAlerter
+StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
 {
-    bool ledGlows;
-    void set_alert()
+    //EmailAlert emailAlert;
+    //LEDAlert ledAlert;
+    alert_flag = 0;
+    for (int i = 0; i < int(float(InputData.size)); i++)
     {
-        ledGlows = true;
-    }
-}
-
-class StatsAlerter::public IAlerter
-{
-    private:
-    float maxThreshold;
-    std::vector<float> inputData;
-    std::vector<IAlerter> alerters_input;
-
-    public:
-    checkAndAlert(const std::vector<float>& inputData);
-
-    //parametrised constructor
-    StatsAlerter(maxThreshold_temp, alerters)
-    {
-        maxThreshold = maxThreshold_temp;
-        alerters_input = alerters;
+        if (InputData[i] > maxThreshold)
+        {
+            alert_flag = 1;
+            break;
+        }
     }
 
+    if(alert_flag == 1)
+    {
+       alerters_input[0].set_alert();
+       alerters_input[1].set_alert();
+    }
 }
-
-
-
-//alerters is vector of struct
