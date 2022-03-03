@@ -45,11 +45,9 @@ class LEDAlert : public IAlerter
 
 class StatsAlerter : public EmailAlert, public LEDAlert
 {
-    private:
-    float maxThreshold;
-    std::vector<IAlerter> alerters_input;
-
     public:
+    float maxThreshold;
+    std::vector<IAlerter*> alerters_input;
     void checkAndAlert(const std::vector<float>& );
 
     //parametrised constructor
