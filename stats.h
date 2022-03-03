@@ -1,66 +1,68 @@
-#include "stats.h"
-//using namespace Statistics;
+#include <vector>
 
-Stats Statistics::ComputeStatistics(const std::vector<float>& InputData) 
+class Stats
 {
-    float i, sum = 0, average,min,max;
-    if(InputData.size())
-    {
-        for (i = 0; i < float(InputData.size()); i++)
-        {
-            sum += InputData[i];
-        }
-        average = sum / float(InputData.size());
-        //std::cout<<average;
+public:
+    float average, max, min;
 
-        //average = (std::accumulate(InputData.begin(),InputData.end(),0))/int(sizeof(InputData));
-        //std::cout<<average;
+    //constructor
+    //Stats(const std::vector<double>& inputdata);
+};
 
-        max = InputData[0];
-        min = InputData[0];
-        for (int i = 0; i < int(InputData.size()); i++)
-        {
-            if (max < InputData[i])
-            {
-                max = InputData[i];
-            }
-            if (min > InputData[i])
-            {
-                min = InputData[i];
-            }
-        }
-    }
-    else
-    {
-        average = 0.0/0.0;
-        max = 0.0/0.0;
-        min = 0.0/0.0;
-    }
-    Stats ComputeStatIstics_Temp; 
-    ComputeStatIstics_Temp.average = average;
-    ComputeStatIstics_Temp.max = max;
-    ComputeStatIstics_Temp.min = min;
-
-    return ComputeStatIstics_Temp;
+    //}ComputeStatIstics_Temp;
+    
+namespace Statistics 
+{
+    Stats ComputeStatistics(const std::vector<float>& inputData);
 }
 
-StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
+class IAlerter
 {
-    //EmailAlert emailAlert;
-    //LEDAlert ledAlert;
-    alert_flag = 0;
-    for (int i = 0; i < int(float(InputData.size)); i++)
+    int alert_flag;
+    virtual void set_alert()
     {
-        if (InputData[i] > maxThreshold)
-        {
-            alert_flag = 1;
-            break;
-        }
-    }
-
-    if(alert_flag == 1)
-    {
-       alerters_input[0]->set_alert();
-       alerters_input[1]->set_alert();
+        //alert_flag = 0;
     }
 }
+
+class EmailAlert::public IAlerter
+{
+    bool emailSent;
+    void set_alert()
+    {
+        emailSent = true;
+    }
+}
+
+class LEDAlert::public IAlerter
+{
+    bool ledGlows;
+    void set_alert()
+    {
+        ledGlows = true;
+    }
+}
+
+class StatsAlerter::public IAlerter
+{
+    private:
+    float maxThreshold;
+    std::vector<float> inputData;
+    std::vector<IAlerter> alerters_input;
+
+    public:
+    checkAndAlert(const std::vector<float>& inputData);
+
+    //parametrised constructor
+    StatsAlerter(const float maxThreshold_temp, std::vector<IAlerter*> alerters)
+    {
+        maxThreshold = maxThreshold_temp;
+        alerters_input = alerters;
+    }
+
+}
+
+
+
+//alerters is vector of struct
+
