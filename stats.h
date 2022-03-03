@@ -25,7 +25,7 @@ class IAlerter
     }
 };
 
-class EmailAlert::public IAlerter
+class EmailAlert : public IAlerter
 {
     bool emailSent;
     void set_alert()
@@ -34,7 +34,7 @@ class EmailAlert::public IAlerter
     }
 };
 
-class LEDAlert::public IAlerter
+class LEDAlert : public IAlerter
 {
     bool ledGlows;
     void set_alert()
@@ -43,7 +43,7 @@ class LEDAlert::public IAlerter
     }
 };
 
-class StatsAlerter::public IAlerter
+class StatsAlerter : public EmailAlert, public LEDAlert
 {
     private:
     float maxThreshold;
