@@ -1,10 +1,7 @@
 #include <vector>
 
 
-
-namespace Statistics 
-{
-    class Stats
+class Stats
     {
        public:
        double average, max, min; 
@@ -12,7 +9,10 @@ namespace Statistics
        //constructor
        //Stats(const std::vector<double>& inputdata);
     //};
-    };
+
+    }ComputeStatIstics_Temp;
+    
+namespace Statistics 
+{
     Stats ComputeStatistics(const std::vector<double>& inputData);
 }
-
