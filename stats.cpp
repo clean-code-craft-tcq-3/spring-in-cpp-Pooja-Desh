@@ -32,9 +32,9 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
     }
     else
     {
-        average = InputData[0];
-        max = InputData[0];
-        min = InputData[0];
+        average = 0/0;
+        max = 0/0;
+        min = 0/0;
     }
     Stats ComputeStatIstics_Temp; 
     ComputeStatIstics_Temp.average = average;
