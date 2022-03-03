@@ -4,7 +4,7 @@
 Stats Statistics::ComputeStatistics(const std::vector<float>& InputData) 
 {
     Stats ComputeStatIstics_Temp;
-    float i, sum = 0,average,max=0,min=0;
+    float i, sum = 0,average,max=0,min=InputData[0];
     for (i=0; i<float(InputData.size()); i++)
     {
         sum += InputData[i];
@@ -21,15 +21,11 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
         {
             max = InputData[i]; 
         }
-    }  
-    
-    for (int i=0; i<int(InputData.size()); i++)
-    {
         if(min > InputData[i])
         {
             min = InputData[i]; 
         }
-    }
+    }  
     ComputeStatIstics_Temp.average = average;
     ComputeStatIstics_Temp.max = max;
     ComputeStatIstics_Temp.min = min;
