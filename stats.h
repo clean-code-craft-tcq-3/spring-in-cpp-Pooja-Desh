@@ -26,6 +26,7 @@ class IAlerter
 
 class EmailAlert : public IAlerter
 {
+    public:
     bool emailSent;
     void set_alert()
     {
@@ -35,6 +36,7 @@ class EmailAlert : public IAlerter
 
 class LEDAlert : public IAlerter
 {
+    public:
     bool ledGlows;
     void set_alert()
     {
